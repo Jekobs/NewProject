@@ -20,4 +20,3 @@ search.send_keys(Keys.RETURN)
 
 # driver.implicitly_wait(10)
 time.sleep(10)
-print(driver.title)
