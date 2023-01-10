@@ -25,10 +25,10 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option("useAutomationExtension", False)
 service = ChromeService(executable_path='C:\\Users\\Skyne\\PycharmProjects\\NewProject\\chromedriver.exe')
 driver = webdriver.Chrome(service=service, options=options)
-
+# driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
 driver.get("https://nb-bet.com/")
 # driver.implicitly_wait(10)
-time.sleep(3)
+time.sleep(35)
 
 search = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[1]/div/div[1]/div/div[3]/a[1]")
 search.click()
