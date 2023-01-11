@@ -5,31 +5,19 @@
 import undetected_chromedriver as webdriver
 import time
 
-
-options = webdriver.ChromeOptions()
-# profile = "C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
-options.add_argument('user-data-dir=C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data')
-options.add_argument('profile-directory=Default')
-driver = webdriver.Chrome(options=options,use_subprocess=True)
-
-
-driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
-# driver.get("https://nb-bet.com/")
-# driver.implicitly_wait(10)
-time.sleep(35)
 #bypass function
 def seleniumUndetected():
-    # options = webdriver.ChromeOptions()
-    # # profile = "C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
-    # options.add_argument('user-data-dir=C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data')
-    # options.add_argument('profile-directory=Default')
-    # driver = webdriver.Chrome(options=options,use_subprocess=True)
-    #
-    #
-    # driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
-    # # driver.get("https://nb-bet.com/")
-    # # driver.implicitly_wait(10)
-    # time.sleep(35)
+    options = webdriver.ChromeOptions()
+    # profile = "C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
+    options.add_argument('--user-data-dir=C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data')
+    options.add_argument('--profile-directory=Default')
+    driver = webdriver.Chrome(options=options,use_subprocess=True)
+
+
+    driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
+    # driver.get("https://nb-bet.com/")
+    # driver.implicitly_wait(10)
+    time.sleep(35)
 
     search = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[2]/div[1]/div/div[1]/div/div[3]/a[1]")
     search.click()
@@ -54,5 +42,5 @@ def seleniumUndetected():
     time.sleep(20)
 
 #driver
-# if __name__ == "__main__":
-#     seleniumUndetected() #call the function
+if __name__ == "__main__":
+    seleniumUndetected() #call the function
