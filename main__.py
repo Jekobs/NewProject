@@ -12,6 +12,7 @@ if __name__ == '__main__':
     options = webdriver.ChromeOptions()
     #options.add_argument('proxy-server=106.122.8.54:3128')
     options.add_argument(r'--user-data-dir=C:\Users\Skyne\AppData\Local\Google\Chrome\User Data\Default')
+    # options.add_argument(r'--user-data-dir')
 
     browser = uc.Chrome(
         options=options,
@@ -20,7 +21,7 @@ if __name__ == '__main__':
     browser.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
     # browser.get('https://nb-bet.com/')
 
-    time.sleep(35)
+    time.sleep(5)
 
     browser.find_element(By.ID, 'identifierId').send_keys(email)
 

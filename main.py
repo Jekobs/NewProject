@@ -9,13 +9,15 @@ import time
 def seleniumUndetected():
     options = webdriver.ChromeOptions()
     # profile = "C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
-    options.add_argument('--user-data-dir=C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data')
-    options.add_argument('--profile-directory=Default')
-    driver = webdriver.Chrome(options=options,use_subprocess=True)
+    # options.add_argument(r'--user-data-dir=C:\\Users\\Skyne\\AppData\\Local\\Google\\Chrome\\User Data')
+    # options.add_argument(r'--profile-directory=Default')
+    # driver = webdriver.Chrome(options=options,use_subprocess=True)
+    # driver = webdriver.Chrome(options=options,)
+    driver = webdriver.Chrome()
 
 
-    driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
-    # driver.get("https://nb-bet.com/")
+    # driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
+    driver.get("https://nb-bet.com/")
     # driver.implicitly_wait(10)
     time.sleep(35)
 
