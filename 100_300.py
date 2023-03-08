@@ -24,23 +24,25 @@ class Client:
         res.raise_for_status()
         return res.text
     def save_result(self):
-        path = 'test.csv'
-        with open(path, 'w', encoding='utf-8') as f:
-            writer = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(HEADERS)
-            for item in self.result:
-                writer.writerow(item)
+        # Check if the file already exists
+        if os.path.exists(os.path.join(path, filename)):
+            print('File already exists.')
+        else:
+            # If the file doesn't exist, create it and add the date to the filename
+            today = datetime.datetime.today()
+            new_filename = "{}_{}".format(today.strftime("%Y-%m-%d"), filename)
+            with open(os.path.join(path, new_filename), "w", encoding='utf-8') as f:
+                f.write(self.result)  #Это новый файл.
+                print("File created: {}".format(new_filename))
 
-# Check if the file already exists
-if os.path.exists(os.path.join(path, filename)):
-    print('File already exists.')
-else:
-    # If the file doesn't exist, create it and add the date to the filename
-    today = datetime.datetime.today()
-    new_filename = "{}_{}".format(today.strftime("%Y-%m-%d"), filename)
-    with open(os.path.join(path, new_filename), "w", encoding='utf-8') as f:
-        f.write("This is a new file.")
-        print("File created: {}".format(new_filename))
+        # path = 'test.csv'
+        # with open(path, 'w', encoding='utf-8') as f:
+        #     writer = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
+        #     writer.writerow(HEADERS)
+        #     for item in self.result:
+        #         writer.writerow(item)
+
+
 
 if __name__ == '__main__':
     parser = Client()
