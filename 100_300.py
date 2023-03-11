@@ -2,14 +2,20 @@ import os
 import datetime
 import requests
 
-# Define the filename and path where you want to save the file
-filename = "data_goal.txt"
-path = "data/"
-update_period="12"
-
-# result = []
 
 class Client:
+    # Define the filename and path where you want to save the file
+    filename = "data.txt"
+    path = "data/"
+    update_period=12
+
+    # Если файл не существует, создаём` его и добавляем дату к имени файла.
+    today = datetime.datetime.now()
+    new_filename2 = "{}_{}".format(today.strftime("%Y-%m-%d"), filename)
+    filename = f"{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')}.txt"  # создает имя файла с текущей датой и временем
+    new_filename = f"{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')}.txt"  # создает имя файла с текущей датой и временем
+
+    result = []
     def __init__(self):
         self.session = requests.Session()
         self.session.headers = {
@@ -21,26 +27,20 @@ class Client:
 
     def init_run(self):
         pass
-
     def load_page(self, page: int = None):
         url = 'https://d.soccerstand.com/ru/x/feed/f_1_0_3_ru_1'
         # url = 'https://www.wildberries.ru/catalog/muzhchinam/bele'
         res = self.session.get(url=url)
-        print(res.encoding) # Проверка кодировки
+        # print(res.encoding) # Проверка кодировки
         res.raise_for_status()
         return res.text
     def parse_page(self):
         texts = text
     def save_result(self, text: str):
         # Check if the file already exists
-        if os.path.exists(os.path.join(path, filename)):
+        if os.path.exists(os.path.join(path, new_filename)):
             print('File already exists.')
         else:
-            # If the file doesn't exist, create it and add the date to the filename
-            today = datetime.datetime.today()
-            # new_filename = "{}_{}".format(today.strftime("%Y-%m-%d"), filename)
-            # filename = f"{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')}.txt"  # создает имя файла с текущей датой и временем
-            new_filename = f"{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')}.txt"  # создает имя файла с текущей датой и временем
             with open(os.path.join(path, new_filename), "w", encoding="utf-8") as f:
                 f.write(text)  #Это новый файл.
                 print("File created: {}".format(new_filename))
