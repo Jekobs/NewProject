@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Загрузка данных из файла CSV
-df = pd.read_csv('data\football_data.csv')
+df = pd.read_csv('data/football_data.csv')
 
 # Фильтрация данных по дате
 start_date = '2021-01-01'
